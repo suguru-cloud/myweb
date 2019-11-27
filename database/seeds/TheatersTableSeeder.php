@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class TheaterTableSeeder extends Seeder
+class TheatersTableSeeder extends Seeder
 {
   /**
    * Run the database seeds.
@@ -11,7 +11,7 @@ class TheaterTableSeeder extends Seeder
    */
   public function run()
   {
-    // $this->call(TheaterTableSeeder::class);
+    // $this->call(TheatersTableSeeder::class);
     DB::table('theaters')->insert([
       'id' => '1',
       'title' => '帝国劇場',

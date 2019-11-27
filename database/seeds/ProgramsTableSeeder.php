@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ProgramTableSeeder extends Seeder
+class ProgramsTableSeeder extends Seeder
 {
   /**
    * Run the database seeds.
@@ -11,7 +11,7 @@ class ProgramTableSeeder extends Seeder
    */
   public function run()
   {
-    // $this->call(ProgramTableSeeder::class);
+    // $this->call(ProgramsTableSeeder::class);
     DB::table('programs')->insert([
       'id' => '1',
       'title' => '1789',

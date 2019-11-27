@@ -36990,17 +36990,6 @@ if (token) {
 
 /***/ }),
 
-/***/ "./resources/sass/front.scss":
-/*!***********************************!*\
-  !*** ./resources/sass/front.scss ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "./resources/sass/profile.scss":
 /*!*************************************!*\
   !*** ./resources/sass/profile.scss ***!
@@ -37023,19 +37012,30 @@ if (token) {
 
 /***/ }),
 
+/***/ "./resources/sass/top.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/top.scss ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!**************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/admin.scss ./resources/sass/profile.scss ./resources/sass/front.scss ./resources/sass/profilefront.scss ***!
-  \**************************************************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/admin.scss ./resources/sass/profile.scss ./resources/sass/top.scss ./resources/sass/profilefront.scss ***!
+  \************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/ec2-user/environment/mynews/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/ec2-user/environment/mynews/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /home/ec2-user/environment/mynews/resources/sass/admin.scss */"./resources/sass/admin.scss");
-__webpack_require__(/*! /home/ec2-user/environment/mynews/resources/sass/profile.scss */"./resources/sass/profile.scss");
-__webpack_require__(/*! /home/ec2-user/environment/mynews/resources/sass/front.scss */"./resources/sass/front.scss");
-module.exports = __webpack_require__(/*! /home/ec2-user/environment/mynews/resources/sass/profilefront.scss */"./resources/sass/profilefront.scss");
+__webpack_require__(/*! /home/ec2-user/environment/myweb/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/ec2-user/environment/myweb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/ec2-user/environment/myweb/resources/sass/admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! /home/ec2-user/environment/myweb/resources/sass/profile.scss */"./resources/sass/profile.scss");
+__webpack_require__(/*! /home/ec2-user/environment/myweb/resources/sass/top.scss */"./resources/sass/top.scss");
+module.exports = __webpack_require__(/*! /home/ec2-user/environment/myweb/resources/sass/profilefront.scss */"./resources/sass/profilefront.scss");
 
 
 /***/ })

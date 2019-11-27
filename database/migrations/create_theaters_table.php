@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTheaterTable extends Migration
+class CreateTheatersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,11 @@ class CreateTheaterTable extends Migration
      // title と address と access と image_path を追記
     public function up()
     {
-        Schema::create('program', function (Blueprint $table) {
+        Schema::create('theaters', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title'); // 作品名を保存するカラム
-            $table->string('story');  // あらすじを保存するカラム
-            $table->string('performancedates'); //公演日を保存するカラム
-            $table->string('releasedate'); //販売日を保存するカラム
+            $table->string('title'); // 劇場名を保存するカラム
+            $table->string('address');  // 劇場の住所を保存するカラム
+            $table->string('access'); //劇場のアクセスを保存するカラム
             $table->string('image_path')->nullable(); // 画像のパスを保存するカラム
             $table->timestamps();
         });
@@ -32,6 +31,6 @@ class CreateTheaterTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('program');
+        Schema::dropIfExists('theaters');
     }
 }
