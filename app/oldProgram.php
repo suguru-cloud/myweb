@@ -7,18 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 class Program extends Model
 {
   protected $guarded = array('id');
+  
   //以下を追記
-  public static $rule = array(
+  public static $rules = array(
     'title' => 'required',
     'story' => 'required',
     'performancedates' => 'required',
     'releasedate' => 'required',
-    );
-    
-  //belongTo設定
+  );
+  
+  //belongsTo設定
   public function theaters()
   {
-    return $this->belongTo('App\Theater');
+    
+    return $this->belongsTo('App\Theater');
   }
-  
+
 }
