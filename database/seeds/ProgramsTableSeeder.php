@@ -13,7 +13,6 @@ class ProgramsTableSeeder extends Seeder
     {
         //$this->call(ProgramsTableSeeder::class);
             DB::table('programs')->insert([
-      'id' => '1',
       'title' => '1789',
       'story' => '革命',
       'performancedates' => '2019年11月20日～2019年12月20日',

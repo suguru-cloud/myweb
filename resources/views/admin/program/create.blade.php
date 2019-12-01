@@ -20,9 +20,9 @@
             </ul>
           @endif
           <div class="form-group row">
-            <label class="col-md-2" for="title">公演作品名</label>
+            <label class="col-md-2" for="titlename">公演作品名</label>
             <div class="col-md-10">
-              <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+              <input type="text" class="form-control" name="titlename" value="{{ old('titlename') }}">
             </div>
           </div>
           <div class="form-group row">

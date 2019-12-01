@@ -1,20 +1,20 @@
 @extends('layouts.admin')
-@section('title', '登録済みのニュース一覧')
+@section('title', '登録済みの劇場一覧')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
   <div class="container">
     <div class="row">
-      <h2>ニュース一覧</h2>
+      <h2>劇場一覧</h2>
     </div>
     <div class="row">
       <div class="col-md-4">
-        <a href="{{ action('Admin\NewsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
+        <a href="{{ action('Admin\TheaterController@add') }}" role="button" class="btn btn-primary">新規作成</a>
       </div>
       <div class="col-md-8">
-        <form action="{{ action('Admin\NewsController@index') }}" method="get">
+        <form action="{{ action('Admin\TheaterController@index') }}" method="get">
           <div class="form-group row">
-            <label class="col-md-2">タイトル</label>
+            <label class="col-md-2">キーワード</label>
             <div class="col-md-8">
               <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
             </div>
@@ -27,29 +27,30 @@
       </div>
     </div>
     <div class="row">
-      <div class="admin-news col-md-12 mx-auto">
+      <div class="list-theater col-md-12 mx-auto">
         <div class="row">
           <table class="table table-dark">
             <thead>
               <tr>
                 <th width="10%">ID</th>
-                <th width="20%">タイトル</th>
-                <th width="50%">本文</th>
-                <th width="10%">操作</th>
+                <th width="20%">劇場名</th>
+                <th width="50%">住所</th>
+                <th width="10%">アクセス</th>
               </tr>
             </thead>
             <tbody>
-              @foreach($posts as $news)
+              @foreach($posts as $theaters)
                 <tr>
-                  <th>{{ $news->id }}</th>
-                  <td>{{ \Str::limit($news->title, 100) }}</td>
-                  <td>{{ \Str::limit($news->body, 250) }}</td>
+                  <th>{{ $theaters->id }}</th>
+                  <td>{{ \Str::limit($theaters->title, 100) }}</td>
+                  <td>{{ \Str::limit($theaters->address, 250) }}</td>
+                  <td>{{ \Str::limit($theaters->access, 100) }}</td>
                   <td>
                     <div>
-                      <a href="{{ action('Admin\NewsController@edit', ['id' => $news->id]) }}">編集</a>
+                      <a href="{{ action('Admin\TheaterController@edit', ['id' => $theaters->id]) }}">編集</a>
                     </div>
                     <div>
-                      <a href="{{ action('Admin\NewsController@delete', ['id' => $news->id]) }}">削除</a>
+                      <a href="{{ action('Admin\TheaterController@delete', ['id' => $theaters->id]) }}">削除</a>
                     </div>
                   </td>
                 </tr>

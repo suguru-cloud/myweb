@@ -13,9 +13,8 @@ class TheatersTableSeeder extends Seeder
     {
         //$this->call(TheatersTableSeeder::class);
         DB::table('theaters')->insert([
-            'id' => '1',
             'title' => '帝国劇場',
-            'adress' => '東京都',
+            'address' => '東京都',
             'access' => '日比谷駅から徒歩5分'
             ]);
     }

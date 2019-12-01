@@ -18,10 +18,10 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
   Route::get('theater/create', 'Admin\TheaterController@add'); //追記
   Route::post('theater/create', 'Admin\TheaterController@create'); //追記
-  Route::get('news', 'Admin\NewsController@index');
-  Route::get('news/edit', 'Admin\NewsController@edit');
-  Route::post('news/edit', 'Admin\NewsController@update');
-  Route::get('news/delete', 'Admin\NewsController@delete');
+  Route::get('theater', 'Admin\TheaterController@index'); //追記
+  Route::get('theater/edit', 'Admin\TheaterController@edit'); //追記
+  Route::post('theater/edit', 'Admin\TheaterController@update'); //追記
+  Route::get('theater/delete', 'Admin\TheaterController@delete'); //追記
   Route::get('program/create', 'Admin\ProgramController@add'); //追記
   Route::post('program/create', 'Admin\ProgramController@create'); //追記
   Route::get('profile/create', 'Admin\ProfileController@add');

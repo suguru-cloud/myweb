@@ -146,12 +146,13 @@ return [
     */
 
     'attributes' => [
-        'title' => 'タイトル',
-        'body' => '本文',
-        'name' => '名前',
-        'gender' => '性別',
-        'hobby' => '趣味',
-        'introduction' => '自己紹介'
+        'title' => '劇場名',
+        'address' => '住所',
+        'access' => 'アクセス',
+        'titlename' => '公演作品名',
+        'story' => 'あらすじ',
+        'performancedates' => '公演日',
+        'releasedate' => 'チケット発売日'
         ],
 
 ];
