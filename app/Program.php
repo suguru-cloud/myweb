@@ -9,6 +9,7 @@ class Program extends Model
   protected $guarded = array('id');
   //以下を追記
   public static $rule = array(
+    'theater_id' => 'required',
     'title' => 'required',
     'story' => 'required',
     'performancedates' => 'required',
@@ -16,7 +17,7 @@ class Program extends Model
     );
     
   //belongTo設定
-  public function theaters()
+  public function theater()
   {
     return $this->belongTo('App\Theater');
   }

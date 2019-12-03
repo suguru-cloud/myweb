@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 // 以下を追加することでNews Modelが扱えるようになる
-use App\News;
+use App\Program;
 
 //以下を追記
 use App\History;

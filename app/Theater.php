@@ -20,11 +20,6 @@ class Theater extends Model
   {
     return $this->hasMany('App\Program');
   }
-  
-  //以下を追記
-  public function histories()
-  {
-    return $this->hasMany('App\History');
-  }
+
   
 }

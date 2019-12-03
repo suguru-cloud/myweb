@@ -7,12 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Theater;
 
 //以下を追記
-use App\History;
-
-//以下を追記
-use Carbon\Carbon;
-
-//以下を追記
 //use Storage;
 
 class TheaterController extends Controller
@@ -111,12 +105,6 @@ class TheaterController extends Controller
       
       // 該当するデータを上書きして保存する
       $theaters->fill($theater_form)->save();
-      
-      //以下を追記
-      $history = new History;
-      $history->theater_id = $theaters->id;
-      $history->edited_at = Carbon::now();
-      $history->save();
       
       return redirect('admin/theater/');
       
