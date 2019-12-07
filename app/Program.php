@@ -16,10 +16,10 @@ class Program extends Model
     'releasedate' => 'required',
     );
     
-  //belongTo設定
+  //belongsTo設定
   public function theater()
   {
-    return $this->belongTo('App\Theater');
+    return $this->belongsTo('App\Theater');
   }
   
 }

@@ -66,7 +66,7 @@ class TheaterController extends Controller
     
     public function edit(Request $request)
     {
-      // News Modelからデータを取得する
+      // Theater Modelからデータを取得する
       $theaters = Theater::find($request->id);
       if (empty($theaters)) {
         abort(404);
@@ -113,7 +113,7 @@ class TheaterController extends Controller
     // 以下を追記
     public function delete(Request $request)
     {
-      // 該当するNews Modelを取得
+      // 該当するTheater Modelを取得
       $theaters = Theater::find($request->id);
       //削除する
       $theaters->delete();
