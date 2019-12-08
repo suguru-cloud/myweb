@@ -26,7 +26,7 @@ class ProgramController extends Controller
       $form = $request->all();
       
       //DBからtheater_idを取得??
-      $theatertitles = DB::table('programs')->pluck('theater_id');
+      $titles = DB::table('theaters')->pluck('title', 'id');
       
       // フォームから画像が送信されてきたら、保存して、$programs->image_path に画像のパスを保存する
       if (isset($form['image'])) {

@@ -23,8 +23,8 @@
             <label class="col-md-2">劇場名</label>
             <div class="col-md-10">
               <select class="form-control" id="name" name="name">
-                @foreach($theatertitles as $theatertitle => $name)
-                <option value="{{$theatertitle}}">{{$name}}</option>
+                @foreach((array)$titles as $title => $name)
+                <option value="{{ $title }}">{{$name}}</option>
                 @endforeach
               </select>
             </div>
