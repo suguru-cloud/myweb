@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-md mx-auto">
         <h2>写真登録</h2>
-        <form action="{{ action('Admin\ProgramController@create') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ action('Post\PosterController@create') }}" method="post" enctype="multipart/form-data">
           <div class="form-group row">
             <label class="col-md-2" for="title">画像</label>
             <div class="col-ms-10">

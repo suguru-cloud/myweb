@@ -18,16 +18,16 @@ class ProgramController extends Controller
     
     public function create(Request $request)
     {
-      
+
+       //DBからtheater_idを取得??
+      $titles = DB::table('theaters')->pluck('title');
+
       //以下を追記
       //Varidationを行う
-      $this->validate($request, Program::$rules);
-      $programs = new Program;
-      $form = $request->all();
-      
-      //DBからtheater_idを取得??
-      $titles = DB::table('theaters')->pluck('title', 'id');
-      
+      //$this->validate($request, Program::$rules);
+      //$programs = new Program;
+      //$form = $request->all();
+
       // フォームから画像が送信されてきたら、保存して、$programs->image_path に画像のパスを保存する
       if (isset($form['image'])) {
         $path = $request->file('image')->store('public/image');
@@ -48,7 +48,7 @@ class ProgramController extends Controller
       $programs->save();
       
       // admin/program/createにリダイレクトする
-      return redirect('admin/program/create');
+      return redirect('admin/program/create', ['titles' => $titles]);
     }
     
     //以下を追加

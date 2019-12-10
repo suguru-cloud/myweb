@@ -30,6 +30,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
   Route::get('program/delete', 'Admin\ProgramController@delete'); //追記
 });
 
+Route::group(['prefix' => 'poster', 'middleware' => 'auth'], function() {
+  Route::get('/create', 'Poster\PosterController@add'); //追記
+  Route::post('/create', 'Poster\PosterController@create'); //追記
+});
+
 Route::get('/theater', 'TheaterController@index');//追記
 
 Route::get('/profile', 'ProfileController@index');
