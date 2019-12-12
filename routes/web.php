@@ -31,8 +31,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 });
 
 Route::group(['prefix' => 'poster', 'middleware' => 'auth'], function() {
-  Route::get('/create', 'Poster\PosterController@add'); //追記
-  Route::post('/create', 'Poster\PosterController@create'); //追記
+  Route::get('photo/create', 'Poster\PhotoController@add'); //追記
+  Route::post('photo/create', 'Poster\PhotoController@create'); //追記
 });
 
 Route::get('/theater', 'TheaterController@index');//追記

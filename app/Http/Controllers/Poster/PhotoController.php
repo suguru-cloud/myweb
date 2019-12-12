@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Post;
+namespace App\Http\Controllers\Poster;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PosterController extends Controller
+class PhotoController extends Controller
 {
   public function add()
   {
@@ -17,14 +17,12 @@ class PosterController extends Controller
     // フォームから画像が送信されてきたら、保存して、$programs->image_path に画像のパスを保存する
     if (isset($form['image'])) {
       $path = $request->file('image')->store('public/image');
-      $posts->image_path = basename($path);
+      $photos->image_path = basename($path);
     
-      return redirect('poster/create')->with(['success'=> 'ファイルを保存しました']);
+      return redirect('poster/photo/create')->with(['success'=> 'ファイルを保存しました']);
   }
   
   return view('poster.create');
   
   }
-  
-  
 }
