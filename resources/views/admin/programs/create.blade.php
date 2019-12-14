@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-md-8 mx-auto">
         <h2>公演作品登録</h2>
-        <form action="{{ action('Admin\ProgramController@create') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ action('Admin\ProgramController@store') }}" method="post" enctype="multipart/form-data">
           
           @if (count($errors) > 0)
             <ul>
@@ -30,9 +30,9 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-md-2" for="title">公演作品名</label>
+            <label class="col-md-2" for="program_title">公演作品名</label>
             <div class="col-md-10">
-              <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+              <input type="text" class="form-control" name="program_title" value="{{ old('program_title') }}">
             </div>
           </div>
           <div class="form-group row">

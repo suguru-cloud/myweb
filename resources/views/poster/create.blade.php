@@ -17,7 +17,7 @@
               <input type="file" class="form-control-file" name="image">
             </div>
           </div>
-          {{-- {{ csf_field() }} --}}
+          {{-- {{ csrf_field() }} --}}
           <input type="submit" class="btn btn-primary" value="投稿">
         </form>
       </div>

@@ -11,17 +11,27 @@ use App\Theater;
 
 class TheaterController extends Controller
 {
-    public function add()
+    public function create()
     {
-      return view('admin.theater.create');
+      return view('admin.theaters.create');
     }
     
-    public function create(Request $request)
+    public function store(Request $request)
     {
       
       //以下を追記
       //Varidationを行う
-      $this->validate($request, Theater::$rules);
+      //$this->validate($request, Theater::$rules);
+      request()->validate([
+        'title' => 'required',
+        'adress' => 'required',
+        'access' => 'required'
+      ],
+      [ 'title.required' => '劇場名を入力してください',
+        'adress.required' => '住所を入力してください',
+        'access.required' => 'アクセスを入力してください'
+      ]);
+      
       $theaters = new Theater;
       $form = $request->all();
       
@@ -44,8 +54,8 @@ class TheaterController extends Controller
       $theaters->fill($form);
       $theaters->save();
       
-      // admin/theater/createにリダイレクトする
-      return redirect('admin/theater/create');
+      // admin/theaters/storeにリダイレクトする
+      return redirect('admin/theaters');
     }
     
     //以下を追加
@@ -59,7 +69,7 @@ class TheaterController extends Controller
           // それ以外はすべての劇場情報を取得する
           $posts = Theater::all();
       }
-      return view('admin.theater.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+      return view('admin.theaters.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
     // 以下を追記
@@ -71,7 +81,7 @@ class TheaterController extends Controller
       if (empty($theaters)) {
         abort(404);
       }
-      return view('admin.theater.edit', ['theater_form' => $theaters]);
+      return view('admin.theaters.edit', ['theater_form' => $theaters]);
     }
     
     public function update(Request $request)
@@ -106,7 +116,7 @@ class TheaterController extends Controller
       // 該当するデータを上書きして保存する
       $theaters->fill($theater_form)->save();
       
-      return redirect('admin/theater/');
+      return redirect('admin/theaters');
       
     }
     
@@ -117,6 +127,6 @@ class TheaterController extends Controller
       $theaters = Theater::find($request->id);
       //削除する
       $theaters->delete();
-      return redirect('admin/theater/');
+      return redirect('admin/theaters');
     }
 }

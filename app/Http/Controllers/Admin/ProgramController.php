@@ -15,21 +15,34 @@ use App\Theater;
 
 class ProgramController extends Controller
 {
-    public function add()
+    public function create()
     {
       //以下の書き方はDBにアクセスする書き方。LaravelではModelを使用してアクセスするため下記は使用しない
       //$titles = DB::table('theaters')->select('id', 'title');     
       //Theater Modelのデータを取得する
       $theaters = Theater::all();
-      return view('admin.program.create', ['theaters' => $theaters]);
+      return view('admin.programs.create', ['theaters' => $theaters]);
     }
     
-    public function create(Request $request)
+    public function store(Request $request)
     {
-
       //以下を追記
-      Varidationを行う
-      $this->validate($request, Program::$rules);
+      //Varidationを行う
+      //$this->validate($request, Program::$rules);
+      request()->validate([
+        'theater_id' => 'required',
+        'title' => 'required',
+        'story' => 'required',
+        'performancedates' => 'required',
+        'releasedate' => 'required',
+      ],
+      [ 'theater_id.required' => '劇場名を入力してください',
+        'title.required' => '公演作品名を入力してください',
+        'story.required' => 'あらすじを入力してください',
+        'performancedates.required' => '公演日を入力してください',
+        'releasedate.required' => 'チケット発売日を入力してください'
+      ]);
+
       $programs = new Program;
       $form = $request->all();
 
@@ -52,8 +65,8 @@ class ProgramController extends Controller
       $programs->fill($form);
       $programs->save();
       
-      // admin/program/createにリダイレクトする
-      return redirect('admin/program/create');
+      // admin/programs/storeにリダイレクトする
+      return redirect('admin/programs');
     }
     
     //以下を追加
@@ -67,7 +80,7 @@ class ProgramController extends Controller
           // それ以外はすべてのニュースを取得する
           $posts = Program::all();
       }
-      return view('admin.program.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+      return view('admin.programs.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
     // 以下を追記
@@ -79,7 +92,7 @@ class ProgramController extends Controller
       if (empty($programs)) {
         abort(404);
       }
-      return view('admin.program.edit', ['program_form' => $programs]);
+      return view('admin.programs.edit', ['program_form' => $programs]);
     }
     
     public function update(Request $request)
@@ -114,7 +127,7 @@ class ProgramController extends Controller
       // 該当するデータを上書きして保存する
       $programs->fill($program_form)->save();
       
-      return redirect('admin/program/');
+      return redirect('admin/programs');
       
     }
     
@@ -125,6 +138,6 @@ class ProgramController extends Controller
       $programs = Program::find($request->id);
       //削除する
       $programs->delete();
-      return redirect('admin/program/');
+      return redirect('admin/programs');
     }
 }

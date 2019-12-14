@@ -9,11 +9,11 @@ class Theater extends Model
   protected $guarded = array('id');
 
   //以下を追記
-  public static $rules = array(
-    'title' => 'required',
-    'address' => 'required',
-    'access' => 'required',
-  );
+  //public static $rules = array(
+    //'title' => 'required',
+    //'adress' => 'required',
+    //'access' => 'required',
+  //);
   
   //以下を追記
   public function programs()
