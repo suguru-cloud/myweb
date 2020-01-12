@@ -22,7 +22,7 @@
           <div class="form-group row">
             <label class="col-md-2">劇場名</label>
             <div class="col-md-10">
-              <select class="form-control" id="name" name="name">
+              <select class="form-control" id="theater_id" name="theater_id">
                 @foreach($theaters as $theater)
                 <option value="{{ $theater->id }}">{{$theater->title}}</option>
                 @endforeach
@@ -30,13 +30,13 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-md-2" for="program_title">公演作品名</label>
+            <label class="col-md-2" for="title">公演作品名</label>
             <div class="col-md-10">
-              <input type="text" class="form-control" name="program_title" value="{{ old('program_title') }}">
+              <input type="text" class="form-control" name="title" value="{{ old('title') }}">
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-md-2" for="story">あらすじ</label>
+            <label class="col-md-2" for="story">出演者</label>
             <div class="col-md-10">
               <textarea class="form-control" name="story" rows="20">{{ old('story') }}</textarea>
             </div>
@@ -59,13 +59,8 @@
               <input type="file" class="form-control-file" name="image">
             </div>
           </div>
-          <div class="form-group row">
-            <div class="col-md-10">
-              {{-- <input type="hidden" name="id" value="{{ $program_form->theater_id }}"> --}}
           {{ csrf_field() }}
           <input type="submit" class="btn btn-primary" value="登録">
-            </div>
-          </div>
         </form>
       </div>
     </div>

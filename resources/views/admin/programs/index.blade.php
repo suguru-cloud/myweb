@@ -32,27 +32,29 @@
           <table class="table table-dark">
             <thead>
               <tr>
-                <th width="10%">ID</th>
-                <th width="20%">公演作品</th>
-                <th width="20%">あらすじ</th>
+                <th width="5%">ID</th>
+                <th width="10%">劇場名</th>
+                <th width="15%">公演作品</th>
+                <th width="20%">出演者</th>
                 <th width="20%">公演日</th>
-                <th width="10%">チケット発売日</th>
+                <th width="15%">チケット発売日</th>
               </tr>
             </thead>
             <tbody>
-              @foreach($posts as $programs)
+              @foreach($posts as $post)
                 <tr>
-                  <th>{{ $programs->id }}</th>
-                  <td>{{ \Str::limit($programs->title, 100) }}</td>
-                  <td>{{ \Str::limit($programs->story, 250) }}</td>
-                  <td>{{ \Str::limit($programs->performancedates, 100) }}</td>
-                  <td>{{ \Str::limit($programs->releasedate, 100) }}</td>
+                  <th>{{ $post->id }}</th>
+                  <td>{{ $post->theater->title }}</td>
+                  <td>{{ \Str::limit($post->title, 100) }}</td>
+                  <td>{{ \Str::limit($post->story, 250) }}</td>
+                  <td>{{ \Str::limit($post->performancedates, 100) }}</td>
+                  <td>{{ \Str::limit($post->releasedate, 100) }}</td>
                   <td>
                     <div>
-                      <a href="{{ action('Admin\ProgramController@edit', ['id' => $programs->id]) }}">編集</a>
+                      <a href="{{ action('Admin\ProgramController@edit', ['id' => $post->id]) }}">編集</a>
                     </div>
                     <div>
-                      <a href="{{ action('Admin\ProgramsController@delete', ['id' => $programs->id]) }}">削除</a>
+                      <a href="{{ action('Admin\ProgramController@delete', ['id' => $post->id]) }}">削除</a>
                     </div>
                   </td>
                 </tr>

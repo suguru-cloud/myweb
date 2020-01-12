@@ -14,7 +14,7 @@ class CreateTheatersTable extends Migration
     public function up()
     {
         Schema::create('theaters', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('title'); //劇場名を保存するカラム
             $table->string('address'); //劇場の住所を保存するカラム
             $table->string('access'); //アクセスを保存するカラム

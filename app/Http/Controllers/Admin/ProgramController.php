@@ -6,8 +6,7 @@ use App\Http\Controllers\Controller;
 // 以下を追加することでProgram Modelが扱えるようになる
 use App\Program;
 
-use Illuminate\Support\Facades\DB;
-//以下を追加することでTheater Modelが扱えるようになる
+// 以下を追加することでTheater Modelが扱えるようになる
 use App\Theater;
 
 //以下を追記
@@ -98,9 +97,22 @@ class ProgramController extends Controller
     public function update(Request $request)
     {
       // Validationをかける
-      $this->validate($request, Program::$rules);
+      request()->validate([
+        'title' => 'required',
+        'story' => 'required',
+        'performancedates' => 'required',
+        'releasedate' => 'required',
+      ],
+      [ //'theater_id.required' => '劇場名を入力してください',
+        'title.required' => '公演作品名を入力してください',
+        'story.required' => 'あらすじを入力してください',
+        'performancedates.required' => '公演日を入力してください',
+        'releasedate.required' => 'チケット発売日を入力してください'
+      ]);        
+      
       // Program Modelからデータを取得する
       $programs = Program::find($request->id);
+      
       // 送信されてきたフォームデータを格納する
       $program_form = $request->all();
       //if ($request->remove == 'true') {

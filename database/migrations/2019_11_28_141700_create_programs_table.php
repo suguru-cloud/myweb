@@ -14,9 +14,9 @@ class CreateProgramsTable extends Migration
     public function up()
     {
         Schema::create('programs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('theater_id'); //劇場名のid
-            $table->string('program_title'); //作品名を保存するカラム
+            $table->string('title'); //作品名を保存するカラム
             $table->string('story'); //あらすじを保存するカラム
             $table->string('performancedates'); //公演日を保存するカラム
             $table->string('releasedate'); //販売日を保存するカラム

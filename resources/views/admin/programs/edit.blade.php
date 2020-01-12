@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-md-2" for="story">あらすじ</label>
+            <label class="col-md-2" for="story">出演者</label>
             <div class="col-md-10">
               <textarea class="form-control" name="story" rows="20">{{ $program_form->story }}</textarea>
             </div>
@@ -30,7 +30,7 @@
           <div class="form-group row">
             <label class="col-md-2" for="performancedates">公演日</label>
             <div class="col-md-10">
-              <input type="text" class="form-control" name="performancedates" value="{{ $program_form->story }}">
+              <input type="text" class="form-control" name="performancedates" value="{{ $program_form->performancedates }}">
             </div>
           </div>
                 <div class="form-group row">
@@ -56,7 +56,6 @@
           <div class="form-group row">
             <div class="col-md-10">
               <input type="hidden" name="id" value="{{ $program_form->id }}">
-              <input type="hidden" name="id" value="{{ $theater_form->id }}">
               {{ csrf_field() }}
               <input type="submit" class="btn btn-primary" value="更新">
             </div>

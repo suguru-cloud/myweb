@@ -22,4 +22,9 @@ class Program extends Model
     return $this->belongsTo('App\Theater');
   }
   
+  public function photos()
+  {
+    return $this->hasMany('App\Photo');
+  }
+  
 }

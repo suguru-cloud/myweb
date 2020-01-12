@@ -3,26 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\HTML;
+
+//追記
+use App\Theater;
+
+//追記
+use App\Program;
+
+//追記
+use App\Photo;
 
 class TopController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+  public function index(Request $request)
+  {
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        return view('top');
-    }
+    // top/index.blade.php ファイルを渡している
+    return view('top.index');
+  }
 }

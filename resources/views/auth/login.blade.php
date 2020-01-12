@@ -56,6 +56,13 @@
                                 </button>
                             </div>
                         </div>
+                        
+                        <div class="form-group row">
+                            <div class="col-auto mx-auto">
+                            <a href="{{ route('top') }}">TOP画面へ</a>
+                            </div>
+                        </div>
+                        
                     </form>
                 </div>
             </div>

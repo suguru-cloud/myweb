@@ -28,13 +28,13 @@
           <div class="form-group row">
             <label class="col-md-2" for="address">住所</label>
             <div class="col-md-10">
-              <textarea class="form-control" name="address" rows="20">{{ old('address') }}</textarea>
+              <input type="text" class="form-control" name="address" value="{{ old('address') }}">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-2" for="access">アクセス</label>
             <div class="col-md-10">
-              <input type="text" class="form-control" name="access" value="{{ old('access') }}">
+              <textarea class="form-control" name="access" rows="20">{{ old('access') }}</textarea>
             </div>
           </div>
           <div class="form-group row">

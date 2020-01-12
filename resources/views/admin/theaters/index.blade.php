@@ -34,23 +34,23 @@
               <tr>
                 <th width="10%">ID</th>
                 <th width="20%">劇場名</th>
-                <th width="50%">住所</th>
-                <th width="10%">アクセス</th>
+                <th width="20%">住所</th>
+                <th width="40%">アクセス</th>
               </tr>
             </thead>
             <tbody>
-              @foreach($posts as $theaters)
+              @foreach($posts as $post)
                 <tr>
-                  <th>{{ $theaters->id }}</th>
-                  <td>{{ \Str::limit($theaters->title, 100) }}</td>
-                  <td>{{ \Str::limit($theaters->address, 250) }}</td>
-                  <td>{{ \Str::limit($theaters->access, 100) }}</td>
+                  <th>{{ $post->id }}</th>
+                  <td>{{ \Str::limit($post->title, 100) }}</td>
+                  <td>{{ \Str::limit($post->address, 250) }}</td>
+                  <td>{{ \Str::limit($post->access, 100) }}</td>
                   <td>
                     <div>
-                      <a href="{{ action('Admin\TheaterController@edit', ['id' => $theaters->id]) }}">編集</a>
+                      <a href="{{ action('Admin\TheaterController@edit', ['id' => $post->id]) }}">編集</a>
                     </div>
                     <div>
-                      <a href="{{ action('Admin\TheaterController@delete', ['id' => $theaters->id]) }}">削除</a>
+                      <a href="{{ action('Admin\TheaterController@delete', ['id' => $post->id]) }}">削除</a>
                     </div>
                   </td>
                 </tr>

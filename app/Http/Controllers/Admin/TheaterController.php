@@ -24,11 +24,11 @@ class TheaterController extends Controller
       //$this->validate($request, Theater::$rules);
       request()->validate([
         'title' => 'required',
-        'adress' => 'required',
+        'address' => 'required',
         'access' => 'required'
       ],
       [ 'title.required' => '劇場名を入力してください',
-        'adress.required' => '住所を入力してください',
+        'address.required' => '住所を入力してください',
         'access.required' => 'アクセスを入力してください'
       ]);
       
@@ -87,7 +87,16 @@ class TheaterController extends Controller
     public function update(Request $request)
     {
       // Validationをかける
-      $this->validate($request, Theater::$rules);
+      request()->validate([
+        'title' => 'required',
+        'address' => 'required',
+        'access' => 'required'
+      ],
+      [ 'title.required' => '劇場名を入力してください',
+        'address.required' => '住所を入力してください',
+        'access.required' => 'アクセスを入力してください'
+      ]);
+
       // Theater Modelからデータを取得する
       $theaters = Theater::find($request->id);
       // 送信されてきたフォームデータを格納する
