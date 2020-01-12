@@ -119,7 +119,14 @@
 			<div class="flexslider js-fullheight">
 				<ul class="slides">
 				@foreach($posts as $post)
+
+				<!-- ここからローカルに保存した画像を表示するコード
 			   	<li style="background-image: url({{ secure_asset('storage/image/' .$post->image_path1) }});">
+				ここまでローカルに保存した画像を表示するコード -->
+
+				<!-- ここからS3に保存した画像を表示するコード -->
+			   	<li style="background-image: url({{ $post->image_path1 }});">
+				<!-- ここまでS3に保存した画像を表示するコード -->
 			   		<div class="overlay-gradient"></div>
 			   		<div class="container">
 			   			<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
@@ -130,7 +137,14 @@
 			   		</div>
 			   	</li>
 				@if($post->image_path2)
+
+				<!-- ここからローカルに保存した画像を表示するコード
 			   	<li style="background-image: url({{ secure_asset('storage/image/' .$post->image_path2) }});">
+				ここまでローカルに保存した画像を表示するコード -->
+
+				<!-- ここからS3に保存した画像を表示するコード -->
+			   	<li style="background-image: url({{ $post->image_path2 }});">
+				<!-- ここまでS3に保存した画像を表示するコード -->
 			   		<div class="overlay-gradient"></div>
 			   		<div class="container">
 			   			<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
@@ -142,7 +156,14 @@
 			   	</li>
 			   	@endif
 			   	@if($post->image_path3)
+
+				<!-- ここからローカルに保存した画像を表示するコード
 			   	<li style="background-image: url({{ secure_asset('storage/image/' .$post->image_path3) }});">
+				ここまでローカルに保存した画像を表示するコード -->
+
+				<!-- ここからS3に保存した画像を表示するコード -->
+			   	<li style="background-image: url({{ $post->image_path3 }});">
+				<!-- ここまでS3に保存した画像を表示するコード -->
 			   		<div class="overlay-gradient"></div>
 			   		<div class="container">
 			   			<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
@@ -180,20 +201,41 @@
 						<h2>{{ $post->program->title }}</h2>
 					</div>
 				</div>
+
+				<!-- ここからローカルに保存した画像を表示するコード
 				<a href="#" class="portfolio-grid-item" style="background-image: url({{ secure_asset('storage/image/' .$post->image_path1) }});">
+				ここまでローカルに保存した画像を表示するコード -->
+
+				<!-- ここからS3に保存した画像を表示するコード -->
+				<a href="#" class="portfolio-grid-item" style="background-image: url({{ $post->image_path1 }});">
+				<!-- ここまでS3に保存した画像を表示するコード -->
 					<div class="desc2">
 				        <h3>{{ $post->title }}</h3>
 					</div>
 				</a>
 				@if ($post->image_path2)
+
+				<!-- ここからローカルに保存した画像を表示するコード
 				<a href="#" class="portfolio-grid-item" style="background-image: url({{ secure_asset('storage/image/' .$post->image_path2) }});">
+				ここまでローカルに保存した画像を表示するコード -->
+
+				<!-- ここからS3に保存した画像を表示するコード -->
+				<a href="#" class="portfolio-grid-item" style="background-image: url({{ $post->image_path2 }});">
+				<!-- ここまでS3に保存した画像を表示するコード -->
 					<div class="desc2">
 				        <h3>{{ $post->title }}</h3>
 					</div>
 				</a>
 				@endif
 				@if ($post->image_path3)
+
+				<!-- ここからローカルに保存した画像を表示するコード
 				<a href="#" class="portfolio-grid-item" style="background-image: url({{ secure_asset('storage/image/' .$post->image_path3) }});">
+				ここまでローカルに保存した画像を表示するコード -->
+
+				<!-- ここからS3に保存した画像を表示するコード -->
+				<a href="#" class="portfolio-grid-item" style="background-image: url({{ $post->image_path3 }});">
+				<!-- ここまでS3に保存した画像を表示するコード -->
 					<div class="desc2">
 				        <h3>{{ $post->title }}</h3>
 					</div>

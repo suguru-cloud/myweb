@@ -118,7 +118,14 @@
 			<div class="flexslider js-fullheight">
 				<ul class="slides">
 			   	@foreach($posts as $post)
+			   	
+			   	<!-- ここからローカルに保存した画像を表示するコード
 			   	<li style="background-image: url({{ secure_asset('storage/image/' .$post->image_path) }});">
+			   	ここまでローカルに保存した画像を表示するコード -->
+			   	
+			   	<!-- ここからS3に保存した画像を表示するコード -->
+			   	<li style="background-image: url({{ $post->image_path }});">
+			   	<!-- ここまでS3に保存した画像を表示するコード -->			   	
 			   		<div class="overlay-gradient"></div>
 			   		<div class="container">
 			   			<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">

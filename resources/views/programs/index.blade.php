@@ -119,7 +119,14 @@
 			<div class="flexslider js-fullheight">
 				<ul class="slides">
 				@foreach($posts as $post)
+
+				<!-- ここからローカルに保存した画像を表示するコード
 			   	<li style="background-image: url({{ secure_asset('storage/image/' .$post->image_path) }});">
+				ここまでローカルに保存した画像を表示するコード -->
+
+				<!-- ここからS3に保存した画像を表示するコード -->
+			   	<li style="background-image: url({{ $post->image_path }});">
+				<!-- ここまでS3に保存した画像を表示するコード -->
 			   		<div class="overlay-gradient"></div>
 			   		<div class="container">
 			   			<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
@@ -286,18 +293,23 @@
 			</div>
 		</div>
 
-
 		<div id="fh5co-portfolio-section">
 			<div class="portfolio-row-half">
 			@foreach($posts as $post)
-				<!--@if ($post->theater->id)-->
+
+				<!-- ここからローカルに保存した画像を表示するコード
 				<a href="#" class="portfolio-grid-item" style="background-image: url({{ secure_asset('storage/image/' .$post->image_path) }});">
+				ここまでローカルに保存した画像を表示するコード -->
+
+				<!-- ここからS3に保存した画像を表示するコード -->
+				<a href="#" class="portfolio-grid-item" style="background-image: url({{ $post->image_path }});">
+				<!-- ここまでS3に保存した画像を表示するコード -->
+
 					<div class="title">
 						        <h3>{{ $post->theater->title }}</h3>
 						        <strong>{{ \Str::limit($post->title, 100) }}</strong>
 					</div>
 				</a>
-				<!--@endif-->
 			@endforeach
 			</div>
 		</div>

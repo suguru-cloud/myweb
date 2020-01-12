@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 // 以下を追加することでTheater Modelが扱えるようになる
 use App\Theater;
 
-//以下を追記
-//use Storage;
+//画像の保存をS3にする
+use Storage;
 
 class TheaterController extends Controller
 {
@@ -36,14 +36,23 @@ class TheaterController extends Controller
       $form = $request->all();
       
       // フォームから画像が送信されてきたら、保存して、$theaters->image_path に画像のパスを保存する
+      /*ここからローカルに画像を保存するコード
       if (isset($form['image'])) {
         $path = $request->file('image')->store('public/image');
         $theaters->image_path = basename($path);
-        //$path = Storage::disk('s3')->putFile('/',$form['image'],'public');
-        //$news->image_path = Storage::disk('s3')->url($path);
+      }else {
+          $theaters->image_path = null;
+      }
+      ここまでローカルに画像を保存するコード*/
+      
+      //ここからS3に画像を保存するコード
+      if (isset($form['image'])) {
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $theaters->image_path = Storage::disk('s3')->url($path);
       } else {
           $theaters->image_path = null;
       }
+      //ここまでS3に画像を保存するコード
       
       // フォームから送信されてきた_tokenを削除する
       unset($form['_token']);
@@ -101,14 +110,19 @@ class TheaterController extends Controller
       $theaters = Theater::find($request->id);
       // 送信されてきたフォームデータを格納する
       $theater_form = $request->all();
-      //if ($request->remove == 'true') {
-          //$theater_form['image_path'] = null;
-      //} elseif ($request->file('image')) {
-          //$path = Storage::disk('s3')->putFile('/',$news_form['image'],'public');
-          //$news_form['image_path'] = Storage::disk('s3')->url($path);
-      //} else {
-          //$news_form['image_path'] = $news->image_path;
-      //}
+
+      //ここから画像をS3に保存するコード
+      if ($request->remove == 'true') {
+          $theater_form['image_path'] = null;
+      } elseif ($request->file('image')) {
+          $path = Storage::disk('s3')->putFile('/',$theater_form['image'],'public');
+          $theater_form['image_path'] = Storage::disk('s3')->url($path);
+      } else {
+          $theater_form['image_path'] = $theaters->image_path;
+      }
+      //ここまで画像をS3に保存するコード
+      
+      /*ここから画像をローカルに保存するコード
       if ($request->remove == 'true') {
           $theater_form['image_path'] = null;
       } elseif ($request->file('image')) {
@@ -117,6 +131,7 @@ class TheaterController extends Controller
       } else {
           $theater_form['image_path'] = $theaters->image_path;
       }
+      ここまで画像をローカルに保存するコード*/
       
       unset($theater_form['_token']);
       unset($theater_form['image']);

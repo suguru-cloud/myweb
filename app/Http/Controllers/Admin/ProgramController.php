@@ -9,8 +9,8 @@ use App\Program;
 // 以下を追加することでTheater Modelが扱えるようになる
 use App\Theater;
 
-//以下を追記
-//use Storage;
+//画像の保存をS3にする
+use Storage;
 
 class ProgramController extends Controller
 {
@@ -46,14 +46,23 @@ class ProgramController extends Controller
       $form = $request->all();
 
       // フォームから画像が送信されてきたら、保存して、$programs->image_path に画像のパスを保存する
+        /*ここからローカルに画像を保存するコード
       if (isset($form['image'])) {
         $path = $request->file('image')->store('public/image');
         $programs->image_path = basename($path);
-        //$path = Storage::disk('s3')->putFile('/',$form['image'],'public');
-        //$news->image_path = Storage::disk('s3')->url($path);
       } else {
           $programs->image_path = null;
       }
+        ここまでローカルに画像を保存するコード*/
+
+      //ここからS3に画像を保存するコード
+      if (isset($form['image'])) {
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $programs->image_path = Storage::disk('s3')->url($path);
+      } else {
+          $programs->image_path = null;
+      }
+      //ここまでS3に画像を保存するコード
       
       // フォームから送信されてきた_tokenを削除する
       unset($form['_token']);
@@ -115,14 +124,19 @@ class ProgramController extends Controller
       
       // 送信されてきたフォームデータを格納する
       $program_form = $request->all();
-      //if ($request->remove == 'true') {
-          //$programs_form['image_path'] = null;
-      //} elseif ($request->file('image')) {
-          //$path = Storage::disk('s3')->putFile('/',$news_form['image'],'public');
-          //$news_form['image_path'] = Storage::disk('s3')->url($path);
-      //} else {
-          //$news_form['image_path'] = $news->image_path;
-      //}
+      
+      //ここから画像をS3に保存するコード
+      if ($request->remove == 'true') {
+          $program_form['image_path'] = null;
+      } elseif ($request->file('image')) {
+          $path = Storage::disk('s3')->putFile('/',$program_form['image'],'public');
+          $program_form['image_path'] = Storage::disk('s3')->url($path);
+      } else {
+          $program_form['image_path'] = $programs->image_path;
+      }
+      //ここまで画像をS3に保存するコード
+      
+      /*ここから画像をローカル保存するコード
       if ($request->remove == 'true') {
           $program_form['image_path'] = null;
       } elseif ($request->file('image')) {
@@ -131,6 +145,7 @@ class ProgramController extends Controller
       } else {
           $program_form['image_path'] = $programs->image_path;
       }
+      ここまで画像をローカルに保存するコード*/
       
       unset($program_form['_token']);
       unset($program_form['image']);
