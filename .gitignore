@@ -15,4 +15,4 @@ npm-debug.log
 yarn-error.log
 
 #databaseディレクトリ内の"UsersTableSeeder.php"ファイルを除外する
-/UsersTableSeeder.php
+UsersTableSeeder.php

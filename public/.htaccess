@@ -20,8 +20,3 @@
     RewriteRule ^ index.php [L]
 </IfModule>
 
-<Directory /var/www/myweb/public>
-Options Indexes FollowSymLinks
-AllowOverride All
-Require all granted
-</Directory>
