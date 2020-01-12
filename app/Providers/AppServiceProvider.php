@@ -27,9 +27,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(UrlGenerator $url)
     {
         //以下を追記
-        //if (\App::environment('production')) {
+        if (\App::environment('production')) {
             \URL::forceScheme('https');
-        //}
+        }
         
     }
 }
