@@ -157,7 +157,7 @@ class PhotoController extends Controller
     //ここから画像をS3に保存するコード
     // image_path1 画像の保存
     if (isset($photo_form['image_path1'])) {
-        $path = Storage::disk('s3')->putFile('/',$form['image_path1'],'public');
+        $path = Storage::disk('s3')->putFile('/',$photo_form['image_path1'],'public');
         $photos->image_path1 = Storage::disk('s3')->url($path);
         unset($photo_form['image_path1']);
     } elseif (isset($request->remove)) {
@@ -167,7 +167,7 @@ class PhotoController extends Controller
 
     // image_path2 画像の保存
     if (isset($photo_form['image_path2'])) {
-        $path = Storage::disk('s3')->putFile('/',$form['image_path2'],'public');
+        $path = Storage::disk('s3')->putFile('/',$photo_form['image_path2'],'public');
         $photos->image_path2 = Storage::disk('s3')->url($path);
         unset($photo_form['image_path2']);
     } elseif (isset($request->remove)) {
@@ -177,7 +177,7 @@ class PhotoController extends Controller
 
     // image_path3 画像の保存
     if (isset($photo_form['image_path3'])) {
-        $path = Storage::disk('s3')->putFile('/',$form['image_path3'],'public');
+        $path = Storage::disk('s3')->putFile('/',$photo_form['image_path3'],'public');
         $photos->image_path3 = Storage::disk('s3')->url($path);
         unset($photo_form['image_path3']);
     } elseif (isset($request->remove)) {

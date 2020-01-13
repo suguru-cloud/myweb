@@ -154,7 +154,7 @@
 						        <strong>住所</strong><br />
 						        <span>{{ \Str::limit($post->address, 100) }}</span><br />
 						        <strong>アクセス</strong><br />
-						        <span>{{ \Str::limit($post->access, 500) }}</span>
+						        <span>{!! nl2br(e($post->access)) !!}</span>
 						    @endif
 						@endforeach
 					</div>
@@ -180,7 +180,7 @@
 						        <strong>住所</strong><br />
 						        <span>{{ \Str::limit($post->address, 100) }}</span><br />
 						        <strong>アクセス</strong><br />
-						        <span>{{ \Str::limit($post->access, 500) }}</span>
+						        <span>{!! nl2br(e($post->access)) !!}</span>
 						    @endif
 						@endforeach
 					</div>
