@@ -14,4 +14,10 @@ class Photo extends Model
   {
     return $this->belongsTo('App\Program');
   }
+
+  //belongsTo設定
+  public function user()
+  {
+    return $this->belongsTo('App\User');
+  }
 }
