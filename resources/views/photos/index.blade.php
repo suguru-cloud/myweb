@@ -195,6 +195,7 @@
 <!--ここから写真の表示-->
 		<div id="fh5co-portfolio-section">
 			<div class="portfolio-row-half">
+			{{ csrf_field() }}
 			@foreach($posts as $post)
 				<div class="portfolio-grid-item-color">
 					<div class="desc">
