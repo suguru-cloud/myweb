@@ -48,22 +48,22 @@ class PhotoController extends Controller
     //ここからS3に画像を保存するコード
     //画像をimage_path1に保存
     $path = Storage::disk('s3')->putFile('/',$form['image_path1'],'public');
-    $programs->image_path1 = Storage::disk('s3')->url($path);
+    $photos->image_path1 = Storage::disk('s3')->url($path);
 
     //画像をimage_path2に保存
     if (isset($form['image_path2'])) {
       $path = Storage::disk('s3')->putFile('/',$form['image_path2'],'public');
-      $programs->image_path2 = Storage::disk('s3')->url($path);
+      $photos->image_path2 = Storage::disk('s3')->url($path);
     } else {
-        $programs->image_path2 = null;
+        $photos->image_path2 = null;
     }
     
     //画像をimage_path3に保存
     if (isset($form['image_path3'])) {
       $path = Storage::disk('s3')->putFile('/',$form['image_path3'],'public');
-      $programs->image_path3 = Storage::disk('s3')->url($path);
+      $photos->image_path3 = Storage::disk('s3')->url($path);
     } else {
-        $programs->image_path3 = null;
+        $photos->image_path3 = null;
     }
     
     /*ここからローカルに画像を保存するコード
@@ -152,7 +152,7 @@ class PhotoController extends Controller
     $photo_form = $request->all();
 
     // 登録ユーザーからidを取得
-    $photos->user_id = Auth::user()->id;
+    //$photos->user_id = Auth::user()->id;
 
     //ここから画像をS3に保存するコード
     // image_path1 画像の保存
