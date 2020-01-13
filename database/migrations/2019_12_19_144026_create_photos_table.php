@@ -17,7 +17,7 @@ class CreatePhotosTable extends Migration
             $table->increments('id');
             $table->integer('program_id'); //追記　公演作品のidを保存するカラム
             $table->string('title'); //追記　画像のタイトルを保存するカラム
-            $table->integer('iser_id');
+            $table->integer('user_id');
             //$table->integer('user_id')->unsigned(); //追記　ユーザー(投稿者)idを保存するカラム
             $table->timestamps();
             //$table->foreign('user_id')->references('id')->on('users');
