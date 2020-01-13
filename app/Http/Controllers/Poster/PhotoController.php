@@ -219,7 +219,7 @@ class PhotoController extends Controller
 
     unset($photo_form['_token']);
 
-    \Debugbar::info($photo_form);
+    //\Debugbar::info($photo_form);
     //該当するデータを上書きして保存する
     $photos->fill($photo_form)->save();
 

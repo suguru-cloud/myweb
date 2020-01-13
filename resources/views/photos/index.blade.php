@@ -209,7 +209,6 @@
 				<!-- ここからS3に保存した画像を表示するコード -->
 				<a href="#" class="portfolio-grid-item" style="background-image: url({{ $post->image_path1 }});">
 				<!-- ここまでS3に保存した画像を表示するコード -->
-					@csrf
 					<div class="desc2">
 				        <h3>{{ $post->title }}</h3>
 					</div>
@@ -223,7 +222,6 @@
 				<!-- ここからS3に保存した画像を表示するコード -->
 				<a href="#" class="portfolio-grid-item" style="background-image: url({{ $post->image_path2 }});">
 				<!-- ここまでS3に保存した画像を表示するコード -->
-					@csrf
 					<div class="desc2">
 				        <h3>{{ $post->title }}</h3>
 					</div>
@@ -238,7 +236,6 @@
 				<!-- ここからS3に保存した画像を表示するコード -->
 				<a href="#" class="portfolio-grid-item" style="background-image: url({{ $post->image_path3 }});">
 				<!-- ここまでS3に保存した画像を表示するコード -->
-					@csrf
 					<div class="desc2">
 				        <h3>{{ $post->title }}</h3>
 					</div>
